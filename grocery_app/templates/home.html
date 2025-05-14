@@ -12,6 +12,17 @@
     <a href="/store/{{ store.id }}">{{ store.title }}</a> - 
     {{ store.items|length }} items
     <p><strong>Address:</strong> {{ store.address }}</p>
+
+    <h3>Items:</h3>
+    <ul>
+        {% for item in store.items %}
+            <li>
+                <strong>{{ item.name }}</strong><br>
+                Price: ${{ item.price }}<br>
+                Quantity: {{ item.quantity }}
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endfor %}
 

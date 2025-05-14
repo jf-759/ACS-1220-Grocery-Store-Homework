@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
-{% block content %}
 
+{% block content %}
 <h1>New Store</h1>
 
 <form method="POST">
     <fieldset>
-        <legend>Please enter your information:</legend>
+        <legend>Please enter your store information:</legend>
+        
+        <label for="store_name">Store Name:</label>
+        <input type="text" id="store_name" name="store_name" required>
+        
+        <label for="store_address">Store Address:</label>
+        <input type="text" id="store_address" name="store_address" required>
 
-        {% include 'form_store.html' %}
+        <button type="submit">Create Store</button>
     </fieldset>
 </form>
-
 
 {% endblock %}

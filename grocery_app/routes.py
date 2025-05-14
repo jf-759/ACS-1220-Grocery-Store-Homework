@@ -126,6 +126,11 @@ def logout():
     logout_user()
     return redirect(url_for('main.homepage'))
 
+@main.route('/shopping-list')
+def shopping_list():
+    return render_template('shopping_list.html', items=current_user.shopping_list_items)
+
+
 @main.route('/add_to_shopping_list/<item_id>', methods=['POST'])
 @login_required
 def add_to_shopping_list(item_id):
