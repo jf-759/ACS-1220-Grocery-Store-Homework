@@ -1,10 +1,13 @@
-from grocery_app.extensions import app, db
-from grocery_app.routes import main
+from grocery_app import app
+from grocery_app.extensions import db
+from grocery_app.models import User, GroceryStore, GroceryItem
 
-app.register_blueprint(main)
-
-with app.app_context():
-    db.create_all()
-
-if __name__ == "__main__":
-    app.run(debug=True)
+@app.shell_context_processor
+def make_shell_context():
+    return {
+        'app': app,
+        'db': db,
+        'User': User,
+        'GroceryStore': GroceryStore,
+        'GroceryItem': GroceryItem,
+    }
